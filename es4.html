@@ -13,6 +13,7 @@
             var interval = setInterval(function() {
                document.getElementById("timer").innerHTML=counter;
                counter++; 
+                console.log(counter);
                 if (counter > 5) {
                     clearInterval(interval);
                     printTabellina();
