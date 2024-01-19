@@ -11,14 +11,13 @@
         function countAndPrint() {
             var counter = 1;
             var interval = setInterval(function() {
-                console.log(counter);
                 counter++;
-
+               document.getElementById("timer").innerHTML=counter;
                 if (counter > 5) {
                     clearInterval(interval);
                     printTabellina();
                 }
-                document.getElementById("timer").innerHTML=counter;
+
             }, 1000);
         }
 
