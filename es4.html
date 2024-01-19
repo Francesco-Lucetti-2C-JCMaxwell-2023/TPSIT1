@@ -9,10 +9,10 @@
     <div id="result"></div>
         <script>
         function countAndPrint() {
-            var counter = 1;
+            var counter = 0;
             var interval = setInterval(function() {
-                counter++;
                document.getElementById("timer").innerHTML=counter;
+               counter++; 
                 if (counter > 5) {
                     clearInterval(interval);
                     printTabellina();
