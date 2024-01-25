@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>quadratifor</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    .div{
+      background-color: blue;
+      width: 10px;
+      height: 10px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="number" id="number">
+  <button onclick=createDiv()>Invia</button>
+  <div id="square"></div>
+  <script>
+    function createDiv(){
+      let n = document.getElementById("number").value;
+      for(let i=0; i<n; i++){
+        document.getElementById("square").innerHTML += "<div class='div'></div>";
+      }
+    }
+  </script>
+</body>
+
+</html>
