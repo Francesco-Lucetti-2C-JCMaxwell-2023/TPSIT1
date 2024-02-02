@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grafica-3</title>
+    <head>
+      <style>
+        .dispari{
+          background-color: lightgrey;
+          width: 10px;
+          height: 10px;
+          border: 1px solid black;
+          margin: 2px;
+          display: inline-block;
+        }
+        .pari{
+          background-color: darkgrey;
+          width: 10px;
+          height: 10px;
+          border: 1px solid black;
+          margin: 2px;
+          display: inline-block;
+        }
+      </style>
+  </head>
+  <body>
+
+    <div id="quadrato"></div>
+    <script>
+      for(let i=1; i<=100; i++){
+        if(i%2!=0){
+          document.getElementById("quadrato").innerHTML += "<div class='dispari'></div>";
+        }
+        else{
+          document.getElementById("quadrato").innerHTML += "<div class='pari'></div>";
+        }
+        if(i>0&&i%10==0){
+          document.getElementById("quadrato").innerHTML += "<br>";
+        }
+      }
+    </script>
+  </body>
+</html>
