@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bottoni con incrementi diversi</title>
+  <style>
+    button {
+      margin: 10px;
+      padding: 5px 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <button id="button1">Bottone 1</button>
+  <button id="button2">Bottone 2</button>
+  <button id="button3">Bottone 3</button>
+  <p id="output"></p>
+
+  <script>
+    let num1 = 1;
+    let num2 = 1;
+    let num3 = 1;
+
+    document.getElementById('button1').addEventListener('click', function() {
+      num1 += 2;
+      document.getElementById('output').innerText = "Numero: " + num1;
+    });
+
+    document.getElementById('button2').addEventListener('click', function() {
+      num2 += 3;
+      document.getElementById('output').innerText = "Numero: " + num2;
+    });
+
+    document.getElementById('button3').addEventListener('click', function() {
+      num3 += 7;
+      document.getElementById('output').innerText = "Numero: " + num3;
+    });
+  </script>
+</body>
+</html>
+
