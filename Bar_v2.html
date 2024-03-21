@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar v.1</title>
+</head>
+<body>
+    <div>
+        <p id="menu">
+
+        </p>
+
+        <p id="menucount"></p>
+    </div>
+   
+
+    <div>
+        <button id="btn_count" onclick="countDrinks()">Numero Drink nel menu</button>
+        <button onclick="addDrink()">Aggiungi Drink</button>
+        <button onclick="deleteDrink()">Elimina Drink</button>
+        <button onclick="buyDrinks()">Ordina</button>
+    </div>
+
+    <script>
+        let drinks = ["Coca-Cola", "Fanta", "Aranciata", "Thé"];
+        let orders = [];
+
+        function updateMenu() {
+            document.getElementById("menu").innerHTML = drinks.join(', ');
+        }
+
+        function countDrinks() {
+            let count = drinks.length;
+            document.getElementById("menucount").innerHTML = `Nel bar sono presenti ${count} drink`;
+        }
+
+        function addDrink() {
+            let newDrink = prompt("Inserisci il nome del nuovo drink:");
+            if (newDrink) {
+                drinks.push(newDrink);
+                updateMenu();
+                countDrinks();
+            }
+        }
+
+        function deleteDrink() {
+            let index = prompt("Inserisci l'indice del drink da eliminare (1 - " + drinks.length + "):");
+            index = parseInt(index);
+            if (!isNaN(index) && index >= 1 && index <= drinks.length) {
+                drinks.splice(index - 1, 1);
+                updateMenu();
+                countDrinks();
+            } else {
+                alert("Indice non valido.");
+            }
+        }
+
+        function buyDrinks() {
+            let orderString = prompt("Inserisci la lista dei numeri dei drink da ordinare (separati da virgola):");
+            if (orderString) {
+                let orderNumbers = orderString.split(',').map(num => parseInt(num.trim()));
+                orders = orderNumbers.map(num => drinks[num - 1]);
+                orders.sort();
+                alert("Hai ordinato: " + orders.join(', '));
+            }
+        }
+
+        updateMenu();
+    </script>
+</body>
+</html>
+
+
