@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generatore di Frasi Casuali</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="text-center">Generatore di Frasi Casuali</h1>
+    <div class="row mt-5">
+        <div class="col-md-3">
+            <h4>Soggetti</h4>
+            <ul id="soggetti" class="list-group"></ul>
+        </div>
+        <div class="col-md-3">
+            <h4>Verbi</h4>
+            <ul id="verbi" class="list-group"></ul>
+        </div>
+        <div class="col-md-3">
+            <h4>Complementi Oggetto</h4>
+            <ul id="complementi" class="list-group"></ul>
+        </div>
+        <div class="col-md-3">
+            <h4>Aggettivi</h4>
+            <ul id="aggettivi" class="list-group"></ul>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-12 text-center">
+            <button id="genera" class="btn btn-primary">Genera Frase Casuale</button>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h2 class="text-center">Frase Casuale:</h2>
+            <p id="frase" class="lead text-center"></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    const soggetti = ["Il gatto", "La tartaruga", "Il computer", "La pianta", "Il libro", "Il telefono", "La casa", "La macchina", "Il cuoco", "Il dentista"];
+    const verbi = ["mangia", "guarda", "legge", "guida", "scrive", "ascolta", "pulisce", "prepara", "dorme", "ama"];
+    const complementi = ["il pesce", "il giornale", "il film", "la musica", "la cucina", "il lavoro", "il prato", "la pizza", "il caffè", "il dentifricio"];
+    const aggettivi = ["grande", "piccolo", "veloce", "lento", "intelligente", "simpatico", "coraggioso", "fortunato", "gentile", "divertente"];
+
+    function generaFrase() {
+        const soggetto = soggetti[Math.floor(Math.random() * soggetti.length)];
+        const verbo = verbi[Math.floor(Math.random() * verbi.length)];
+        const complemento = complementi[Math.floor(Math.random() * complementi.length)];
+        const aggettivo = aggettivi[Math.floor(Math.random() * aggettivi.length)];
+
+        const frase = `${soggetto} ${verbo} ${aggettivo} ${complemento}`;
+        document.getElementById('frase').innerText = frase;
+    }
+
+    document.getElementById('genera').addEventListener('click', generaFrase);
+
+    window.onload = () => {
+        // Popolamento delle liste
+        const soggettiList = document.getElementById('soggetti');
+        const verbiList = document.getElementById('verbi');
+        const complementiList = document.getElementById('complementi');
+        const aggettiviList = document.getElementById('aggettivi');
+
+        soggetti.forEach(soggetto => {
+            const item = document.createElement('li');
+            item.className = 'list-group-item';
+            item.innerText = soggetto;
+            soggettiList.appendChild(item);
+        });
+
+        verbi.forEach(verbo => {
+            const item = document.createElement('li');
+            item.className = 'list-group-item';
+            item.innerText = verbo;
+            verbiList.appendChild(item);
+        });
+
+        complementi.forEach(complemento => {
+            const item = document.createElement('li');
+            item.className = 'list-group-item';
+            item.innerText = complemento;
+            complementiList.appendChild(item);
+        });
+
+        aggettivi.forEach(aggettivo => {
+            const item = document.createElement('li');
+            item.className = 'list-group-item';
+            item.innerText = aggettivo;
+            aggettiviList.appendChild(item);
+        });
+    }
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generatore di Frasi Casuali</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="text-center">Generatore di Frasi Casuali</h1>
+    <div class="row mt-5">
+        <div class="col-md-3">
+            <h4>Soggetti</h4>
+            <ul id="soggetti" class="list-group"></ul>
+        </div>
+        <div class="col-md-3">
+            <h4>Verbi</h4>
+            <ul id="verbi" class="list-group"></ul>
+        </div>
+        <div class="col-md-3">
+            <h4>Complementi Oggetto</h4>
+            <ul id="complementi" class="list-group"></ul>
+        </div>
+        <div class="col-md-3">
+            <h4>Aggettivi</h4>
+            <ul id="aggettivi" class="list-group"></ul>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-12 text-center">
+            <button id="genera" class="btn btn-primary">Genera Frase Casuale</button>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h2 class="text-center">Frase Casuale:</h2>
+            <p id="frase" class="lead text-center"></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    const soggetti = ["Il gatto", "La tartaruga", "Il computer", "La pianta", "Il libro", "Il telefono", "La casa", "La macchina", "Il cuoco", "Il dentista"];
+    const verbi = ["mangia", "guarda", "legge", "guida", "scrive", "ascolta", "pulisce", "prepara", "dorme", "ama"];
+    const complementi = ["il pesce", "il giornale", "il film", "la musica", "la cucina", "il lavoro", "il prato", "la pizza", "il caffè", "il dentifricio"];
+    const aggettivi = ["grande", "piccolo", "veloce", "lento", "intelligente", "simpatico", "coraggioso", "fortunato", "gentile", "divertente"];
+
+    function generaFrase() {
+        const soggetto = soggetti[Math.floor(Math.random() * soggetti.length)];
+        const verbo = verbi[Math.floor(Math.random() * verbi.length)];
+        const complemento = complementi[Math.floor(Math.random() * complementi.length)];
+        const aggettivo = aggettivi[Math.floor(Math.random() * aggettivi.length)];
+
+        const frase = `${soggetto} ${verbo} ${aggettivo} ${complemento}`;
+        document.getElementById('frase').innerText = frase;
+    }
+
+    document.getElementById('genera').addEventListener('click', generaFrase);
+
+    window.onload = () => {
+        // Popolamento delle liste
+        const soggettiList = document.getElementById('soggetti');
+        const verbiList = document.getElementById('verbi');
+        const complementiList = document.getElementById('complementi');
+        const aggettiviList = document.getElementById('aggettivi');
+
+        soggetti.forEach(soggetto => {
+            const item = document.createElement('li');
+            item.className = 'list-group-item';
+            item.innerText = soggetto;
+            soggettiList.appendChild(item);
+        });
+
+        verbi.forEach(verbo => {
+            const item = document.createElement('li');
+            item.className = 'list-group-item';
+            item.innerText = verbo;
+            verbiList.appendChild(item);
+        });
+
+        complementi.forEach(complemento => {
+            const item = document.createElement('li');
+            item.className = 'list-group-item';
+            item.innerText = complemento;
+            complementiList.appendChild(item);
+        });
+
+        aggettivi.forEach(aggettivo => {
+            const item = document.createElement('li');
+            item.className = 'list-group-item';
+            item.innerText = aggettivo;
+            aggettiviList.appendChild(item);
+        });
+    }
+</script>
+
+</body>
+</html>
