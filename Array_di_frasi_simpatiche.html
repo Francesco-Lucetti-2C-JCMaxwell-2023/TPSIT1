@@ -1,4 +1,5 @@
-	<html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,31 +11,37 @@
 <h1 class="text-center my-5">Generatore di Frasi Casuali</h1>
 <div class="row">
 <div class="col-md-6">
+<!-- Lista dei soggetti -->
 <h3>Soggetti</h3>
 <ul id="soggetti-list" class="list-group"></ul>
 </div>
 <div class="col-md-6">
+<!-- Lista dei verbi -->
 <h3>Verbi</h3>
 <ul id="verbi-list" class="list-group"></ul>
 </div>
 </div>
 <div class="row mt-5">
 <div class="col-md-6">
+<!-- Lista dei complementi oggetto -->
 <h3>Complementi Oggetto</h3>
 <ul id="complementi-list" class="list-group"></ul>
 </div>
 <div class="col-md-6">
+<!-- Lista degli aggettivi -->
 <h3>Aggettivi</h3>
 <ul id="aggettivi-list" class="list-group"></ul>
 </div>
 </div>
 <div class="row mt-5">
 <div class="col text-center">
+<!-- Pulsante per generare una frase casuale -->
 <button id="genera-frase" class="btn btn-primary">Genera Frase Casuale</button>
 </div>
 </div>
 <div class="row mt-3">
 <div class="col text-center">
+<!-- Visualizzazione della frase generata -->
 <h2 id="frase-generata" class="mt-3"></h2>
 </div>
 </div>
@@ -42,11 +49,16 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+// Array dei soggetti
 const soggetti = ['Il gatto', 'La ragazza', 'Il computer', 'Il cane', 'La pianta', 'Il libro', 'La casa', 'Il telefono', 'Il professore', 'Il bambino'];
+// Array dei verbi
 const verbi = ['mangia', 'corre', 'guarda', 'studia', 'gioca', 'ascolta', 'dorme', 'canta', 'salta', 'pulisce'];
+// Array dei complementi oggetto
 const complementi = ['la mela', 'il film', 'il cielo', 'la musica', 'il libro', 'il lavoro', 'il gioco', 'la strada', 'la lezione', 'il compito'];
+// Array degli aggettivi
 const aggettivi = ['bello', 'intelligente', 'simpatico', 'grande', 'piccolo', 'felice', 'triste', 'interessante', 'buffo', 'serio'];
 
+// Elementi della lista HTML
 const soggettiList = document.getElementById('soggetti-list');
 const verbiList = document.getElementById('verbi-list');
 const complementiList = document.getElementById('complementi-list');
@@ -56,17 +68,21 @@ const fraseGenerata = document.getElementById('frase-generata');
 
 // Funzione per generare una frase casuale
 function generaFraseCasuale() {
+// Seleziona casualmente un soggetto, un verbo, un complemento oggetto e un aggettivo
 const soggettoCasuale = soggetti[Math.floor(Math.random() * soggetti.length)];
 const verboCasuale = verbi[Math.floor(Math.random() * verbi.length)];
 const complementoCasuale = complementi[Math.floor(Math.random() * complementi.length)];
 const aggettivoCasuale = aggettivi[Math.floor(Math.random() * aggettivi.length)];
 
+// Costruisce la frase casuale
 const frase = `${soggettoCasuale} ${verboCasuale} ${complementoCasuale} ${aggettivoCasuale}.`;
+// Visualizza la frase generata
 fraseGenerata.textContent = frase;
 }
 
 // Popola le liste HTML con gli array iniziali
 function popolaListe() {
+// Popola la lista dei soggetti
 soggetti.forEach(soggetto => {
 const li = document.createElement('li');
 li.textContent = soggetto;
@@ -74,6 +90,7 @@ li.classList.add('list-group-item');
 soggettiList.appendChild(li);
 });
 
+// Popola la lista dei verbi
 verbi.forEach(verbo => {
 const li = document.createElement('li');
 li.textContent = verbo;
@@ -81,6 +98,7 @@ li.classList.add('list-group-item');
 verbiList.appendChild(li);
 });
 
+// Popola la lista dei complementi oggetto
 complementi.forEach(complemento => {
 const li = document.createElement('li');
 li.textContent = complemento;
@@ -88,6 +106,7 @@ li.classList.add('list-group-item');
 complementiList.appendChild(li);
 });
 
+// Popola la lista degli aggettivi
 aggettivi.forEach(aggettivo => {
 const li = document.createElement('li');
 li.textContent = aggettivo;
