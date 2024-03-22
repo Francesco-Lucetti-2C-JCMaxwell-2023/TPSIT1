@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Definizione del tipo di documento e della lingua -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bottoni con incrementi diversi</title>
+  <!-- Stile per i bottoni -->
   <style>
     button {
       margin: 10px;
@@ -19,25 +21,34 @@
   <p id="output"></p>
 
   <script>
+    // Variabili per memorizzare i numeri associati ai bottoni
     let num1 = 1;
     let num2 = 1;
     let num3 = 1;
 
+    // Aggiungi un evento al click del primo bottone
     document.getElementById('button1').addEventListener('click', function() {
+      // Incrementa il numero associato al bottone 1 di 2
       num1 += 2;
+      // Visualizza il numero associato al bottone cliccato
       document.getElementById('output').innerText = "Numero: " + num1;
     });
 
+    // Aggiungi un evento al click del secondo bottone
     document.getElementById('button2').addEventListener('click', function() {
+      // Incrementa il numero associato al bottone 2 di 3
       num2 += 3;
+      // Visualizza il numero associato al bottone cliccato
       document.getElementById('output').innerText = "Numero: " + num2;
     });
 
+    // Aggiungi un evento al click del terzo bottone
     document.getElementById('button3').addEventListener('click', function() {
+      // Incrementa il numero associato al bottone 3 di 7
       num3 += 7;
+      // Visualizza il numero associato al bottone cliccato
       document.getElementById('output').innerText = "Numero: " + num3;
     });
   </script>
 </body>
 </html>
-
