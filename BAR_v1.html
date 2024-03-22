@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -14,20 +14,24 @@
 <div id="output"></div>
 
 <script>
+// Seleziona l'elemento <div> dove verranno visualizzati i risultati
 const outputDiv = document.getElementById("output");
 
 // Funzione per gestire il click sul primo bottone
 document.getElementById("instructionsBtn").addEventListener("click", function() {
+    // Mostra un messaggio di saluto quando viene cliccato il primo bottone
     outputDiv.innerText = "Ciao";
 });
 
 // Funzione per gestire il click sul secondo bottone
 document.getElementById("menuBtn").addEventListener("click", function() {
+    // Mostra un elenco di drink quando viene cliccato il secondo bottone
     outputDiv.innerHTML = "<ul><li>Drink 1</li><li>Drink 2</li><li>Drink 3</li></ul>";
 });
 
 // Funzione per gestire il click sul terzo bottone
 document.getElementById("ordersBtn").addEventListener("click", function() {
+    // Chiede all'utente di inserire la sua ordinazione e la visualizza
     const order = prompt("Inserisci la tua ordinazione:");
     if (order) {
         outputDiv.innerHTML += "<p>Ordine: " + order + "</p>";
