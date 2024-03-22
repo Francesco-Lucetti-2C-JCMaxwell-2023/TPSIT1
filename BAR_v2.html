@@ -1,4 +1,4 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -33,23 +33,29 @@ Ricorda di studiare i metodi join e At per implementare correttamente le funzion
 let bevande = ["Mojito", "Long island", "Negroni"];
 let ordini = [];
 visualizza();
+// Visualizza l'elenco delle bevande disponibili
 function visualizza(){
 document.getElementById("vettore").innerHTML = "Bevande: " + bevande.join(", ");
 }
+// Conta il numero di bevande disponibili
 function contaElementi(){
 document.getElementById("output1").innerHTML = "Ci sono " + bevande.length + " elementi";
 }
+// Aggiunge una nuova bevanda all'elenco
 function Aggiungi(){
 bevanda = prompt("Aggiungi una bevanda: ");
 bevande.push(bevanda);
 visualizza();
 }
+// Elimina l'ultima bevanda dall'elenco
 function Elimina(){
 bevande.pop();
 visualizza();
 }
+// Acquista una bevanda selezionando il numero corrispondente dalla lista
 function Acquista(){
 let ordine = prompt("Inserisci il numero della bevanda che vuoi acquistare");
+// Aggiunge la bevanda selezionata agli ordini
 ordini.push(bevande.at(ordine-1));
 document.getElementById("output2").innerHTML = "Ordine: " + ordini.join(", ");
 }
