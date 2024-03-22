@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html>
+<!-- Definizione del tipo di documento -->
   <head>
     <title>Grafica-3</title>
-    <head>
-      <style>
-        .dispari{
-          background-color: lightgrey;
-          width: 10px;
-          height: 10px;
-          border: 1px solid black;
-          margin: 2px;
-          display: inline-block;
-        }
-        .pari{
-          background-color: darkgrey;
-          width: 10px;
-          height: 10px;
-          border: 1px solid black;
-          margin: 2px;
-          display: inline-block;
-        }
-      </style>
+    <!-- Stile CSS per definire l'aspetto dei quadrati -->
+    <style>
+      /* Stile per i quadrati con indice dispari */
+      .dispari{
+        background-color: lightgrey;
+        width: 10px;
+        height: 10px;
+        border: 1px solid black;
+        margin: 2px;
+        display: inline-block;
+      }
+      /* Stile per i quadrati con indice pari */
+      .pari{
+        background-color: darkgrey;
+        width: 10px;
+        height: 10px;
+        border: 1px solid black;
+        margin: 2px;
+        display: inline-block;
+      }
+    </style>
   </head>
   <body>
 
+    <!-- Div per contenere i quadrati -->
     <div id="quadrato"></div>
     <script>
+      // Ciclo per creare i quadrati
       for(let i=1; i<=100; i++){
+        // Se l'indice è dispari, aggiungi un quadrato con classe "dispari"
         if(i%2!=0){
           document.getElementById("quadrato").innerHTML += "<div class='dispari'></div>";
         }
+        // Altrimenti, aggiungi un quadrato con classe "pari"
         else{
           document.getElementById("quadrato").innerHTML += "<div class='pari'></div>";
         }
+        // Se l'indice è multiplo di 10, aggiungi un'interruzione di riga
         if(i>0&&i%10==0){
           document.getElementById("quadrato").innerHTML += "<br>";
         }
