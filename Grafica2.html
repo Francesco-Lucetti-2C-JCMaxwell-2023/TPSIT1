@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<!-- Definizione del tipo di documento -->
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
@@ -17,12 +17,17 @@
 </head>
 
 <body>
+  <!-- Input per inserire il numero di quadrati -->
   <input type="number" id="number">
   <button onclick=createDiv()>Invia</button>
+  <!-- Contenitore dei quadrati -->
   <div id="square"></div>
   <script>
+    // Funzione per creare i quadrati
     function createDiv(){
+      // Ottieni il numero inserito dall'utente
       let n = document.getElementById("number").value;
+      // Genera n quadrati e li aggiunge al contenitore
       for(let i=0; i<n; i++){
         document.getElementById("square").innerHTML += "<div class='div'></div>";
       }
