@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>.
+<head>
+  <!-- Definizione del tipo di documento e della lingua -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calcolatore IMC</title>
@@ -15,13 +16,16 @@
   <p id="risultato"></p>
 
   <script>
+    // Funzione per calcolare l'IMC (Indice di Massa Corporea)
     function calcolaIMC() {
+      // Ottieni il valore del peso e dell'altezza inseriti dall'utente
       var peso = parseFloat(document.getElementById('peso').value);
       var altezza = parseFloat(document.getElementById('altezza').value);
+      // Calcola l'IMC
       var imc = peso / (altezza * altezza);
+      // Visualizza il risultato dell'IMC con due decimali
       document.getElementById('risultato').innerHTML = "Il tuo IMC è: " + imc.toFixed(2);
     }
   </script>
 </body>
 </html>
-
