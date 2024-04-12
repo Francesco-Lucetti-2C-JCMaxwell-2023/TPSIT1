@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gioco di Sumo</title>
+  <style>
+    /* Stile per il gioco */
+    body {
+      background-color: green;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #game-container {
+      position: relative;
+    }
+
+    #center-circle {
+      width: 100px;
+      height: 100px;
+      background-color: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #player1-button, #player2-button {
+      position: absolute;
+      bottom: 10px;
+    }
+
+    #player1-button {
+      left: 10px;
+    }
+
+    #player2-button {
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Contenitore di gioco con cerchio centrale e pulsanti dei giocatori -->
+  <div id="game-container">
+    <div id="center-circle"></div>
+    <button id="player1-button">Giocatore 1</button>
+    <button id="player2-button">Giocatore 2</button>
+  </div>
+
+  <script>
+    // Posizioni iniziali dei giocatori
+    let player1Position = 0;
+    let player2Position = 0;
+    
+    // Velocità di movimento
+    const movementSpeed = 10;
+    
+    // Durata del gioco in secondi
+    const gameDuration = 60;
+    
+    // Variabile per contenere il timer
+    let timer;
+
+    // Funzione per muovere il Giocatore 1 quando il suo pulsante viene premuto
+    function movePlayer1() {
+      player1Position += movementSpeed;
+      updatePlayerPosition();
+      checkWinner();
+    }
+
+    // Funzione per muovere il Giocatore 2 quando il suo pulsante viene premuto
+    function movePlayer2() {
+      player2Position += movementSpeed;
+      updatePlayerPosition();
+      checkWinner();
+    }
+
+    // Funzione per aggiornare la posizione dei pulsanti dei giocatori sullo schermo
+    function updatePlayerPosition() {
+      document.getElementById("player1-button").style.bottom = player1Position + "px";
+      document.getElementById("player2-button").style.bottom = player2Position + "px";
+    }
+
+    // Funzione per verificare se un giocatore ha vinto
+    function checkWinner() {
+      const centerCircleRadius = 50;
+      const playerButtonSize = 50;
+
+      if (player1Position >= centerCircleRadius && player1Position <= gameDuration * movementSpeed - playerButtonSize) {
+        clearInterval(timer);
+        alert("Giocatore 1 vince!");
+      }
+
+      if (player2Position >= centerCircleRadius && player2Position <= gameDuration * movementSpeed - playerButtonSize) {
+        clearInterval(timer);
+        alert("Giocatore 2 vince!");
+      }
+    }
+
+    // Gestori di eventi per i pulsanti dei giocatori
+    document.getElementById("player1-button").addEventListener("click", movePlayer1);
+    document.getElementById("player2-button").addEventListener("click", movePlayer2);
+
+    // Funzione per avviare il gioco quando la pagina si carica
+    function startGame() {
+      timer = setInterval(() => {
+        if (player1Position < gameDuration * movementSpeed && player2Position < gameDuration * movementSpeed) {
+          player1Position += movementSpeed;
+          player2Position += movementSpeed;
+          updatePlayerPosition();
+        } else {
+          clearInterval(timer);
+          alert("Partita finita! Nessun vincitore.");
+        }
+      }, 1000);
+    }
+
+    // Gestore di eventi per avviare il gioco quando la pagina è caricata
+    document.addEventListener("DOMContentLoaded", startGame);
+  </script>
+</body>
+</html>
+
