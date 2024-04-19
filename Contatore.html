@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contatore e Tabelline</title>
+    <style>
+        /* Stile CSS */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        #result {
+            font-size: 18px;
+            margin-top: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Contatore -->
+        <div id="contatore">Contatore: 0</div>
+
+        <!-- Risultato -->
+        <div id="result"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        let contatore = 0;
+        let interval;
+
+        // Funzione per avviare il contatore
+        function startContatore() {
+            // Inizializza il contatore a 0
+            contatore = 0;
+
+            // Avvia un intervallo di 1000 ms (1 secondo)
+            interval = setInterval(() => {
+                contatore++;
+                document.getElementById("contatore").textContent = "Contatore: " + contatore;
+
+                // Se il contatore raggiunge 5, ferma l'intervallo e stampa la tabellina
+                if (contatore === 5) {
+                    clearInterval(interval);
+                    stampaTabellina();
+                }
+            }, 1000);
+        }
+
+        // Funzione per stampare la tabellina del 1 al 10
+        function stampaTabellina() {
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = ""; // Pulisci il div
+
+            // Ciclo per stampare la tabellina del 1 al 10
+            for (let i = 1; i <= 10; i++) {
+                for (let j = 1; j <= 5; j++) {
+                    resultDiv.innerHTML += `${j} x ${i} = ${j * i}<br>`;
+                }
+                resultDiv.innerHTML += "<br>"; // Aggiungi una riga vuota tra le tabelline
+            }
+        }
+
+        // Avvia il contatore quando la pagina viene caricata
+        startContatore();
+    </script>
+</body>
+
+</html>
