@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Analisi Codice Binario</title>
+    <style>
+        /* CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin-bottom: 20px;
+        }
+
+        #risultati, #byteVisualizzati {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Analisi Codice Binario</h1>
+
+        <!-- Area di input per il codice binario -->
+        <label for="codiceBinario">Inserisci il codice binario:</label>
+        <textarea id="codiceBinario" rows="5" cols="50"></textarea>
+
+        <!-- Pulsante per eseguire l'analisi -->
+        <button onclick="analizzaCodice()">Analizza</button>
+
+        <!-- Risultati -->
+        <div id="risultati">
+            <h2>Risultati:</h2>
+            <p id="numeroBit">Numero di bit: </p>
+            <p id="numeroByte">Numero di byte: </p>
+            <p id="messaggioNascosto">Messaggio nascosto: </p>
+        </div>
+
+        <!-- Area per visualizzare i byte separati -->
+        <div id="byteVisualizzati">
+            <h3>Byte separati:</h3>
+            <p id="byteList"></p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Funzione per analizzare il codice binario inserito
+        function analizzaCodice() {
+            // Ottenere il codice binario dall'area di input
+            let codiceBinario = document.getElementById("codiceBinario").value;
+
+            // Contare i bit
+            let numBit = codiceBinario.length;
+            document.getElementById("numeroBit").textContent += numBit;
+
+            // Calcolare il numero di byte
+            if (numBit % 8 === 0) {
+                let numByte = numBit / 8;
+                document.getElementById("numeroByte").textContent += numByte;
+
+                // Separare il codice binario in byte e visualizzarli su righe separate
+                let byteList = [];
+                for (let i = 0; i < codiceBinario.length; i += 8) {
+                    let byte = codiceBinario.slice(i, i + 8);
+                    byteList.push(byte);
+                }
+                document.getElementById("byteList").textContent = byteList.join("\n");
+
+                // Decodificare ogni byte in caratteri ASCII e visualizzare il messaggio nascosto
+                let messaggio = "";
+                for (let byte of byteList) {
+                    let carattere = String.fromCharCode(parseInt(byte, 2));
+                    messaggio += carattere;
+                }
+                document.getElementById("messaggioNascosto").textContent += messaggio;
+            } else {
+                // Visualizzare un messaggio di errore se il codice binario non ha una lunghezza multipla di 8
+                document.getElementById("numeroByte").textContent = "Il codice binario non ha una lunghezza multipla di 8.";
+            }
+        }
+    </script>
+</body>
+
+</html>
