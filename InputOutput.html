@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Analisi Codice Binario</title>
+    <style>
+        /* CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin-bottom: 10px;
+        }
+
+        #risultati {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Analisi Codice Binario</h1>
+
+        <!-- Primo input per il codice binario -->
+        <label for="primoInput">Inserisci il primo codice binario:</label>
+        <textarea id="primoInput" rows="3" cols="50"></textarea>
+
+        <!-- Secondo input per il codice binario -->
+        <label for="secondoInput">Inserisci il secondo codice binario:</label>
+        <textarea id="secondoInput" rows="3" cols="50"></textarea>
+
+        <!-- Primo bottone per calcolare la lunghezza del primo input -->
+        <button onclick="calcolaLunghezzaPrimoInput()">Lunghezza primo input</button>
+
+        <!-- Secondo bottone per calcolare la lunghezza del secondo input -->
+        <button onclick="calcolaLunghezzaSecondoInput()">Lunghezza secondo input</button>
+
+        <!-- Terzo bottone per calcolare la lunghezza totale di entrambi gli input -->
+        <button onclick="calcolaLunghezzaTotale()">Lunghezza totale degli input</button>
+
+        <!-- Risultati -->
+        <div id="risultati">
+            <h2>Risultati:</h2>
+            <p id="lunghezzaPrimoInput">Lunghezza primo input: </p>
+            <p id="lunghezzaSecondoInput">Lunghezza secondo input: </p>
+            <p id="lunghezzaTotale">Lunghezza totale degli input: </p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Funzione per calcolare la lunghezza del primo input
+        function calcolaLunghezzaPrimoInput() {
+            let primoInput = document.getElementById("primoInput").value;
+            let lunghezzaPrimoInput = primoInput.length;
+            document.getElementById("lunghezzaPrimoInput").textContent = "Lunghezza primo input: " + lunghezzaPrimoInput;
+        }
+
+        // Funzione per calcolare la lunghezza del secondo input
+        function calcolaLunghezzaSecondoInput() {
+            let secondoInput = document.getElementById("secondoInput").value;
+            let lunghezzaSecondoInput = secondoInput.length;
+            document.getElementById("lunghezzaSecondoInput").textContent = "Lunghezza secondo input: " + lunghezzaSecondoInput;
+        }
+
+        // Funzione per calcolare la lunghezza totale degli input
+        function calcolaLunghezzaTotale() {
+            let primoInput = document.getElementById("primoInput").value;
+            let secondoInput = document.getElementById("secondoInput").value;
+            let lunghezzaTotale = primoInput.length + secondoInput.length;
+            document.getElementById("lunghezzaTotale").textContent = "Lunghezza totale degli input: " + lunghezzaTotale;
+        }
+    </script>
+</body>
+
+</html>
