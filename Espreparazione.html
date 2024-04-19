@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css" media="all">
+        .image{
+            width: 100px;
+            height: 100px;
+           border-radius: 100px;
+        }
+        #container{
+            padding: 10px;
+            color: gray;
+            background-color: #fffdd0;
+            border: 2px solid black;
+         
+        }
+        #text{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img class="image" src="https://img.fcbayern.com/image/upload/t_cms-portrait/f_auto/w_900,c_fill/q_auto/v1660123320/cms/public/images/fcbayern-com/players/spielerportraits/ganzkoerper/leon_goretzka.png" alt="" />
+        <div>
+            <a href="https://www.marcopalladino.it"><img class="image" src="https://ilmondoinformatico.com/wp-content/uploads/2021/05/i-numero-della-tecnologia.png" alt="" /></a>
+        </div>
+        <div>
+            <p id="text">
+              -(Giosuè Carducci)-<br>
+              La nebbia a gl'irti colli<br>
+              piovigginando sale,<br>
+              e sotto il maestrale<br>
+              urla e biancheggia il mar;<br>
+
+              ma per le vie del borgo<br>
+              dal ribollir de' tini<br>
+              va l'aspro odor de i vini<br>
+              l'anime a rallegrar.<br>
+
+              Gira su' ceppi accesi<br>
+              lo spiedo scoppiettando:<br>
+              sta il cacciator fischiando<br>
+              sull'uscio a rimirar<br>
+
+              tra le rossastre nubi<br>
+              stormi d'uccelli neri,<br>
+              com'esuli pensieri,<br>
+              nel vespero migrar.<br>
+            </p>
+        </div>
+        <div>
+          <button onclick="punto1()">Genera</button>
+            <p id="punto1"></p>
+            <p id="punto2"></p>
+            <p id="punto3"></p>
+            <button onclick="punto4()">Cliccami</button>
+            <p id="punto4"></p>
+        </div>
+    </div>
+    <script>
+            let cont=0;
+            let count=0;
+            let cunt=0;
+        function punto1(){
+          let n = Math.floor(Math.random()*3);
+          if(n==1){
+            document.getElementById("punto1").innerHTML = n + " "  + n;
+          }
+          else{
+            document.getElementById("punto1").innerHTML = n;
+          }
+        }
+      function punto2(){
+          let str = "";
+          count++;
+          str = 9*count;
+          if(count > 10){
+          clearInterval(Interval);
+        }
+          document.getElementById("punto2").innerHTML += " " + str;        
+      }
+      setInterval(punto2, 1000);
+
+  let interval = setInterval(function() {
+  let str = document.getElementById('punto3');
+
+  if (cunt % 2 === 0) {
+    str.innerHTML = 'Ciao';
+  } else {
+    str.innerHTML = '';
+  }
+
+  cunt++;
+
+  if (cunt > 20) {
+    clearInterval(interval);
+    str.innerHTML = 'FINE';
+    str.style.color = 'red';
+  }
+}, 1000);
+
+        function punto4(){
+            cont++;
+            document.getElementById("punto4").innerHTML = "Hai cliccato " + cont + " volte";
+        }
+    </script>
+</body>
+</html>
