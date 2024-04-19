@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Indovina il Numero</title>
+    <style>
+        /* CSS */
+        body {
+            background-color: #f0f0f0; /* Sfondo grigio chiaro */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .button-container {
+            padding: 10px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px;
+            width: 100px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Colorazioni dei bottoni con colori Pantone blu */
+        button:nth-child(1) {
+            background-color: #0074D9; /* Pantone Blu */
+        }
+
+        button:nth-child(2) {
+            background-color: #001F3F; /* Pantone Blu Scuro */
+        }
+
+        button:nth-child(3) {
+            background-color: #7FDBFF; /* Pantone Azzurro */
+        }
+
+        button:nth-child(4) {
+            background-color: #39CCCC; /* Pantone Ciano */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Div per il bottone 1 -->
+        <div class="button-container">
+            <button onclick="generaNumeroCasuale()">1</button>
+        </div>
+
+        <!-- Div per il bottone 2 -->
+        <div class="button-container">
+            <button onclick="generaNumeroCasuale()">2</button>
+        </div>
+
+        <!-- Div per il bottone 3 -->
+        <div class="button-container">
+            <button onclick="generaNumeroCasuale()">3</button>
+        </div>
+
+        <!-- Div per il bottone 4 -->
+        <div class="button-container">
+            <button onclick="generaNumeroCasuale()">4</button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Funzione che genera un numero casuale tra 1 e 4 e lo mostra in un alert
+        function generaNumeroCasuale() {
+            let numeroCasuale = Math.floor(Math.random() * 4) + 1; // Genera un numero casuale tra 1 e 4
+            alert(numeroCasuale);
+        }
+    </script>
+</body>
+
+</html>
