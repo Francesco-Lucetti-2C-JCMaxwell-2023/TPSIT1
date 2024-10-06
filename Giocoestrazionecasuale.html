@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporizzatore ed Estrazione di Numeri Casuali</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #countdown, #numbers, #message, #score {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        form {
+            margin: 20px 0;
+        }
+
+        input[type="number"] {
+            padding: 5px;
+            width: 50px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Estrazione di numeri casuali</h1>
+        <p id="countdown">Countdown: 3</p>
+        <p id="numbers">Numeri estratti: --</p>
+        <form id="guessForm">
+            <label for="guess">Indovina il numero che non esce (0-10):</label>
+            <input type="number" id="guess" name="guess" min="0" max="10" required>
+            <button type="submit">Indovina</button>
+        </form>
+        <p id="message">Indovina il numero...</p>
+        <p id="score">Punteggio: 0</p>
+    </div>
+
+    <script>
+        let countdownElement = document.getElementById('countdown');
+        let numbersElement = document.getElementById('numbers');
+        let messageElement = document.getElementById('message');
+        let scoreElement = document.getElementById('score');
+        let form = document.getElementById('guessForm');
+        let score = 0;
+        let countdown = 3;
+        let guess = 0;
+        let numbers = [];
+
+        // Funzione per generare 10 numeri casuali tra 0 e 10
+        function generateRandomNumbers() {
+            let randomNumbers = [];
+            for (let i = 0; i < 10; i++) {
+                randomNumbers.push(Math.floor(Math.random() * 11));
+            }
+            return randomNumbers;
+        }
+
+        // Funzione per iniziare il countdown e poi estrarre i numeri
+        function startCountdown() {
+            countdownElement.textContent = `Countdown: ${countdown}`;
+            let interval = setInterval(() => {
+                countdown--;
+                countdownElement.textContent = `Countdown: ${countdown}`;
+                if (countdown === 0) {
+                    clearInterval(interval);
+                    extractNumbers();
+                }
+            }, 1000);
+        }
+
+        // Funzione per estrarre e mostrare i numeri
+        function extractNumbers() {
+            numbers = generateRandomNumbers();
+            numbersElement.textContent = `Numeri estratti: ${numbers.join(', ')}`;
+        }
+
+        // Verifica se il numero indovinato non è tra i numeri estratti
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            guess = parseInt(document.getElementById('guess').value);
+            if (!numbers.includes(guess)) {
+                messageElement.textContent = "Complimenti! Hai indovinato.";
+                score++;
+            } else {
+                messageElement.textContent = "Peccato! Il numero è stato estratto.";
+            }
+            scoreElement.textContent = `Punteggio: ${score}`;
+            resetGame();
+        });
+
+        // Reset del gioco dopo ogni estrazione
+        function resetGame() {
+            countdown = 3;
+            countdownElement.textContent = `Countdown: ${countdown}`;
+            messageElement.textContent = 'Indovina il numero...';
+            setTimeout(startCountdown, 5000);
+        }
+
+        // Inizio del gioco
+        startCountdown();
+    </script>
+</body>
+</html>
